@@ -61,11 +61,12 @@ git checkout proyecto
 
 ---
 
-## Requisitos
-
-- Android Studio Dolphin o superior
-- SDK mínimo: API 21 (Lollipop)
-- Conexión a internet para sincronizar dependencias
+| Requisito         | Detalle                                |
+|-------------------|----------------------------------------|
+| Android mínimo     | Android 7.0 Nougat (API nivel 24)      |
+| IDE                | Android Studio Hedgehog o superior     |
+| Lenguaje           | Kotlin                                 |
+| Sistema de persistencia | SharedPreferences                  |
 
 ---
 
