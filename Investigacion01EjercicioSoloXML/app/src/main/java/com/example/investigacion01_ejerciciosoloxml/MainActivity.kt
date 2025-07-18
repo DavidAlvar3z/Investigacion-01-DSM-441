@@ -104,6 +104,61 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+           
+    // Guardar tareas en SharedPreferences
+        private fun guardarTareas() {
+            val prefs = getSharedPreferences(prefsName, Context.MODE_PRIVATE)
+            val editor = prefs.edit()
+            val gson = Gson()
+            val json = gson.toJson(tareas)
+            editor.putString(tareasKey, json)
+            editor.apply()
+        }
 
-    
+        // 📦 Cargar tareas desde SharedPreferences
+    private fun cargarTareas(): ArrayList<Tarea> {
+        val prefs = getSharedPreferences(prefsName, Context.MODE_PRIVATE)
+        val json = prefs.getString(tareasKey, null)
+        val gson = Gson()
+
+        val type = object : TypeToken<ArrayList<Tarea>>() {}.type
+        val listaCargada: ArrayList<Tarea>? = if (json != null) gson.fromJson(json, type) else null
+
+        //TAREAS AÑADIDAS CON JSON * SHAREDPREFERENCES (GUARDAR LOCALMENTE LAS TAREAS)
+
+        return if (listaCargada != null && listaCargada.isNotEmpty()) {
+            listaCargada
+        } else {
+            // Primer uso o lista vacía → crear las tareas por defecto
+            val tareasIniciales = arrayListOf(
+                Tarea("Estudiar para el examen", false),
+                Tarea("Lavar la ropa", true),
+                Tarea("Hacer tarea de Android", false),
+                Tarea("Implementar JSON + sharedpreferences", false),
+
+
+                //TAREA AGREGADA Y PUNTOS PUNTOS QUE SE TIENEN QUE MEJORAR
+
+                Tarea("Revisar la función de marcado como listo", false),
+
+                //1- Se puede marcar una tarea como tachada pero no se marca el botón (mejora adicional)
+
+                Tarea("Establecer fechas de vencimiento", false)
+
+                //2- Establecer lo de las fechas de vencimiento o agrupar por categorias,
+                //pienso es más fácil que lo de por categorias :)
+
+
+
+                //DATO: tareas que se agregan en código, no se muestran en la app al volverla a correr ya que
+                //al cargar la aplicación se guardan solo las que lleve el código, luego, solo se van a guardar
+                //localmente las tareas que se añadan desde la aplicación al igual de como va marcada :) -Caleb
+
+            )
+            // Guardarlas para que no desaparezcan luego
+            tareas = tareasIniciales
+            guardarTareas()
+            tareasIniciales
+        }
+    }
 }
