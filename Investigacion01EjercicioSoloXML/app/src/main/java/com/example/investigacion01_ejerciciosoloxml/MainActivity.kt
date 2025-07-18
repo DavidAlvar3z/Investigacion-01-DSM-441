@@ -1,8 +1,7 @@
 package com.example.investigacion01_ejerciciosoloxml
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
-import android.util.SparseBooleanArray
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
