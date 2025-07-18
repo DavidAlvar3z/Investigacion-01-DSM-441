@@ -1,5 +1,6 @@
 package com.example.investigacion01_ejerciciosoloxml
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -19,7 +20,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tareas: ArrayList<Tarea>
     private lateinit var adapter: TareaAdapter
     private var tareaEnEdicionIndex: Int? = null
-    
+
+    companion object {
+        private const val prefsName = "MisTareasPrefs"
+        private const val tareasKey ="tareas"
+        }
 
 
     @SuppressLint("MissingInflatedId")
