@@ -14,11 +14,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonAddTask: Button
     private lateinit var buttonDeleteTask: Button
     private lateinit var listViewTasks: ListView
+    private lateinit var buttonCancelEdit: Button
 
     private lateinit var tareas: ArrayList<Tarea>
     private lateinit var adapter: TareaAdapter
     private var tareaEnEdicionIndex: Int? = null
-    private lateinit var buttonCancelEdit: Button
+    
 
 
     @SuppressLint("MissingInflatedId")
@@ -32,22 +33,18 @@ class MainActivity : AppCompatActivity() {
         listViewTasks = findViewById(R.id.listViewTasks)
         buttonCancelEdit = findViewById(R.id.buttonCancelEdit)
 
-        tareas = arrayListOf(
-            Tarea("Estudiar para el examen", false),
-            Tarea("Lavar la ropa", true),
-            Tarea("Hacer tarea de Android", false)
-        )
+       // Cargar las tareas guardadas
+        tareas = cargarTareas()
 
         adapter = TareaAdapter(this, tareas)
         listViewTasks.adapter = adapter
 
-        // Ocultar botón eliminar por defecto
         buttonDeleteTask.visibility = View.GONE
 
-        // Marcar como completada con click corto
         listViewTasks.setOnItemClickListener { _, _, position, _ ->
             val tarea = tareas[position]
             tarea.completada = !tarea.completada
+            guardarTareas()
             adapter.notifyDataSetChanged()
         }
 
@@ -106,4 +103,7 @@ class MainActivity : AppCompatActivity() {
             buttonCancelEdit.visibility = View.GONE
         }
     }
+
+
+    
 }
