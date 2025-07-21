@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F2F4F8"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Lista de Tareas"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#303F9F"
+        android:fontFamily="sans-serif-medium"
+        android:shadowColor="#B0B0B0"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Campo: Nueva tarea -->
+    <EditText
+        android:id="@+id/editTextTask"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Nueva tarea"
+        android:inputType="text"
+        android:background="@drawable/edittext_rounded_bg"
+        android:padding="16dp"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textColorHint="#888888"
+        android:drawableStart="@drawable/ic_edit"
+        android:drawablePadding="10dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Campo: Fecha -->
+    <EditText
+        android:id="@+id/editTextFecha"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Fecha (dd/MM/yyyy)"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
+        android:padding="16dp"
+        android:background="@drawable/edittext_rounded_bg"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textColorHint="#888888"
+        android:drawableStart="@drawable/ic_calendar"
+        android:drawablePadding="10dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Campo: Categoría -->
+    <Spinner
+        android:id="@+id/spinnerCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/spinner_rounded_bg"
+        android:spinnerMode="dropdown"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Botón agregar -->
+    <Button
+        android:id="@+id/buttonAddTask"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Agregar"
+        android:textAllCaps="false"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:elevation="6dp"
+        android:fontFamily="sans-serif-medium"
+        android:stateListAnimator="@animator/button_elevation"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/buttonCancelEdit"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Cancelar edición"
+        android:textAllCaps="false"
+        android:backgroundTint="#E53935"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:elevation="6dp"
+        android:fontFamily="sans-serif-medium"
+        android:stateListAnimator="@animator/button_elevation" />
+
+    <Button
+        android:id="@+id/buttonDeleteTask"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Eliminar tarea seleccionada"
+        android:textAllCaps="false"
+        android:backgroundTint="#9E9E9E"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:elevation="6dp"
+        android:fontFamily="sans-serif-medium"
+        android:stateListAnimator="@animator/button_elevation" />
+
+    <ListView
+        android:id="@+id/listViewTasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:divider="#BDBDBD"
+        android:dividerHeight="1.5dp"
+        android:paddingBottom="12dp" />
+
+</LinearLayout>
