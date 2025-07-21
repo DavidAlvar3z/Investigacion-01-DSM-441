@@ -1,79 +1,118 @@
-# Investigacion-01-DSM-441
+Aquí tienes el README completo listo para copiar y pegar en formato de consola:
 
-Este es un proyecto Android sencillo desarrollado como parte de la materia DSM-441. La aplicación permite gestionar tareas personales con una interfaz amigable. Entre sus funciones básicas se incluyen:
+```markdown
+# 📱 ToDoOrbit - Gestor de Tareas Android
 
-- Agregar nuevas tareas
-- Marcar tareas como completadas
-- Visualizar tareas activas y completadas con estilos diferenciados
-- Cancelar una edición en proceso
-- Eliminar tareas
-- Persistencia de datos local
+![App Screenshot](https://via.placeholder.com/300x600?text=ToDoOrbit+Screenshot)  
+*Aplicación de gestión de tareas con persistencia local y diseño moderno*
 
-> **Nota:** El desarrollo se encuentra en la rama `proyecto`. Asegúrate de cambiar a esta rama al clonar el repositorio.
+## 📌 Descripción
 
----
+ToDoOrbit es una aplicación Android para gestión de tareas personales desarrollada en Kotlin como proyecto educativo para la materia DSM-441. Ofrece:
 
-## Tecnologías utilizadas
+- ✅ Creación y edición de tareas
+- 🎨 Interfaz intuitiva con animaciones
+- 💾 Persistencia de datos usando SharedPreferences y JSON
+- ⏱ Pantalla de inicio (Splash Screen) animada
+- 📅 Soporte para fechas y categorías (en desarrollo)
 
-- **Lenguaje:** Kotlin
-- **Entorno de desarrollo:** Android Studio
-- **Diseño de interfaz:** XML
-- **Almacenamiento local:** SharedPreferences
+## 🛠 Tecnologías utilizadas
 
----
+| Categoría         | Tecnologías                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| **Lenguaje**      | Kotlin 100%                                                                 |
+| **Persistencia**  | SharedPreferences + GSON (Serialización JSON)                               |
+| **UI/UX**        | XML layouts, CardView, Animaciones, Material Design                        |
+| **Arquitectura**  | MVC (Model-View-Controller)                                                |
+| **Dependencias**  | [GSON](https://github.com/google/gson) para serialización                  |
 
-## Clonación del repositorio
+## 🚀 Cómo comenzar
 
-Puedes clonar el proyecto ejecutando:
+### Prerrequisitos
+- Android Studio Hedgehog o superior
+- Dispositivo/emulador con Android 7.0+ (API 24)
 
-```bash
-git clone https://github.com/DavidAlvar3z/Investigacion-01-DSM-441.git
-cd Investigacion-01-DSM-441
-git checkout proyecto
+### Instalación
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/DavidAlvar3z/Investigacion-01-DSM-441.git
+   cd Investigacion-01-DSM-441
+   git checkout proyecto
+   ```
+2. Abrir en Android Studio
+3. Ejecutar en emulador/dispositivo (⌘ + R / Ctrl + R)
+
+## 🏗 Estructura del proyecto
+
+```
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/investigacion01_ejerciciosoloxml/
+│   │   │   ├── MainActivity.kt         # Lógica principal
+│   │   │   ├── SplashActivity.kt       # Pantalla de inicio animada
+│   │   │   ├── Tarea.kt                # Modelo de datos
+│   │   │   └── TareaAdapter.kt         # Adaptador personalizado
+│   │   ├── res/
+│   │   │   ├── layout/
+│   │   │   │   ├── activity_main.xml   # Vista principal
+│   │   │   │   ├── activity_splash.xml # Vista splash
+│   │   │   │   └── item_tarea.xml      # Item de lista personalizado
+│   │   │   └── anim/                   # Animaciones
+│   │   └── AndroidManifest.xml
 ```
 
+## 🎨 Características clave
+
+### Funcionalidades implementadas
+- **CRUD completo** de tareas
+- **Persistencia local** usando SharedPreferences + JSON
+- **Diseño responsive** con CardView y estilos personalizados
+- **Splash Screen** con animaciones de rebote y fade-in
+- **Validaciones** para evitar tareas vacías
+- **Diferenciación visual** entre tareas completadas/activas
+
+### Ejemplo de código (Persistencia)
+```kotlin
+private fun guardarTareas() {
+    val prefs = getSharedPreferences(prefsName, Context.MODE_PRIVATE)
+    val editor = prefs.edit()
+    val gson = Gson()
+    val json = gson.toJson(tareas)
+    editor.putString(tareasKey, json)
+    editor.apply()
+}
+```
+
+## 📝 Roadmap y mejoras pendientes
+
+| Mejora                     | Estado      | Prioridad |
+|----------------------------|-------------|-----------|
+| Implementar categorías      | Pendiente   | Alta      |
+| Añadir fechas de vencimiento| En progreso | Media     |
+| Mejorar marcado de tareas   | Pendiente   | Baja      |
+| Sincronización con backend  | Futuro      | Baja      |
+
+## 🤔 ¿Cómo contribuir?
+
+1. Haz fork del proyecto
+2. Crea una rama (`git checkout -b feature/AmazingFeature`)
+3. Haz commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Haz push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Distribuido bajo la licencia MIT. Ver `LICENSE` para más información.
+
+## ✒️ Autores
+
+- **Ashley Gabriela Valdez Gonzalez** (VG240979)
+- **Caleb Alejandro Peñate Deras** (PD230166)  
+- **David Alejandro Alvarez Moreira** - [@DavidAlvar3z](https://github.com/DavidAlvar3z) (AM240104)
+- **Waldo José Pérez Aguillon** (PA230265)
+
 ---
 
-## Estructura del proyecto
-
-| Archivo/Carpeta             | Descripción                                         |
-|----------------------------|-----------------------------------------------------|
-| `app/src/main/java/...`    | Código fuente en Kotlin                             |
-| `app/src/main/res/layout`  | Archivos de diseño XML para las interfaces de usuario |
-| `app/src/main/res/values`  | Archivos de recursos como strings y colores         |
-| `app/src/main/AndroidManifest.xml` | Configuración principal de la app         |
-| `MainActivity.kt`          | Actividad principal que gestiona la lógica de tareas|
-
----
-
-## Cómo usar la aplicación
-
-1. Abre el proyecto en Android Studio.
-2. Conecta un emulador o un dispositivo Android.
-3. Ejecuta la aplicación (`Run > Run app`).
-4. En la pantalla principal:
-   - Escribe una tarea en el campo de texto.
-   - Pulsa "Agregar tarea" para incluirla en la lista.
-   - Marca como completada usando la casilla de verificación (una vez marcada no se puede desmarcar).
-   - Tareas completadas se mostrarán en color gris con una apariencia desactivada.
-   - Las tareas activas permiten edición; las completadas solo se pueden eliminar.
-   - Si estás editando una tarea, puedes cancelar la edición con el botón "Cancelar edición".
-
----
-
-| Requisito         | Detalle                                |
-|-------------------|----------------------------------------|
-| Android mínimo     | Android 7.0 Nougat (API nivel 24)      |
-| IDE                | Android Studio Hedgehog o superior     |
-| Lenguaje           | Kotlin                                 |
-| Sistema de persistencia | SharedPreferences                  |
-
----
-
-## Estado del proyecto
-
-Este proyecto está activo para prácticas educativas. No se recomienda su uso en producción sin modificaciones y validaciones adicionales.
-
-3. Construir y ejecutar la aplicación en un emulador o dispositivo físico con Android 5.0 (Lollipop) o superior.
-
-4. Interactuar con la aplicación para agregar, completar, editar y eliminar tareas.
+> **Nota educativa**: Este proyecto fue desarrollado con fines académicos. No está recomendado para uso en producción sin las debidas revisiones de seguridad y optimización.
+```
