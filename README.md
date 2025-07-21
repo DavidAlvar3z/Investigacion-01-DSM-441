@@ -1,4 +1,4 @@
-Aquí tienes el README completo listo para copiar y pegar en formato de consola:
+
 
 ```markdown
 # 📱 ToDoOrbit - Gestor de Tareas Android
@@ -111,7 +111,7 @@ Distribuido bajo la licencia MIT. Ver `LICENSE` para más información.
 - **Caleb Alejandro Peñate Deras** (PD230166)  
 - **David Alejandro Alvarez Moreira** - [@DavidAlvar3z](https://github.com/DavidAlvar3z) (AM240104)
 - **Waldo José Pérez Aguillon** (PA230265)
-- **Camila Elizabeth Castillo Joya (PD230166)
+- **Camila Elizabeth Castillo Joya**(CJ220498)
 
 ---
 
